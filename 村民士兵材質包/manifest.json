@@ -1,0 +1,29 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "測試用材質包",
+        "description": "測試用材質包",
+        "uuid": "a03cab86-44f7-406a-b171-5fa6edcf423c",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            16,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "f8904499-444c-475f-bd9c-1db042495a91",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}

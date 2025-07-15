@@ -1,0 +1,35 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "miki:stone_guardian"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " B ",
+            "AAA",
+            " A "
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:cobblestone",
+                "data": 0
+            },
+            "B": {
+                "item": "minecraft:carved_pumpkin",
+                "data": 0
+            }
+        },
+        "unlock": [
+            {
+              "item": "minecraft:cobblestone"
+            }
+          ],
+        "result": {
+            "item": "miki:stone_guardian_spawn_egg",
+            "count": 1
+        }
+    }
+}

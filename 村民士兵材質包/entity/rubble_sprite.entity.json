@@ -1,0 +1,38 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "miki:rubble_sprite",
+			"materials": {
+				"default": "allay"
+			},
+			"textures": {
+				"default": "textures/entity/rubble_sprite/default"
+			},
+			"geometry": {
+				"default": "geometry.rubble_sprite"
+			},
+			"spawn_egg": {
+				"base_color": "#22fcea",
+				"overlay_color": "#749e11"
+			},
+			"animations": {
+				"walk": "animation.rubble_sprite.walk",
+				"idle": "animation.rubble_sprite.idle",
+				"dance": "animation.allay.dance",
+				"dancing": "controller.animation.allay.dancing",
+				"hold_item_fly": "animation.allay.hold_item_fly",
+				"hold_item": "animation.rubble_sprite.hold_item",
+				"general": "controller.animation.rubble_sprite.general",
+				"holding": "controller.animation.rubble_sprite.holding",
+				"look_at_target": "controller.animation.rubble_sprite.look_at_target"
+			},
+			"scripts": {
+				"pre_animation": ["variable.holding_trident = query.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident');"],
+				"animate": ["general", "holding", "look_at_target", "dancing"]
+			},
+			"render_controllers": ["controller.render.rubble_sprite"],
+			"enable_attachables": true
+		}
+	}
+}

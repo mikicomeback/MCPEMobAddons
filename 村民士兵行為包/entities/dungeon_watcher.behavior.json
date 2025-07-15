@@ -1,0 +1,146 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "miki:dungeon_watcher",
+			"runtime_identifier": "minecraft:vex",
+      		"spawn_category": "monster",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player ? 5 + (query.equipment_count * Math.Random(1,3)) : 0"
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": ["warden", "vex", "monster", "mob"]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/enderman.json"
+			},
+			"minecraft:health": {
+				"value": 40,
+				"max": 40
+			},
+			"minecraft:attack": {
+				"damage": 5
+			},
+			"minecraft:collision_box": {
+				"width": 1.0,
+				"height": 1.0
+			},
+			"minecraft:movement": {
+				"value": 1
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.roar": {
+				"priority": 2,
+				"duration": 4.2
+			},
+			"minecraft:behavior.sonic_boom": {
+				"priority": 3,
+				"duration": 3.0,
+				"speed_multiplier": 1.2,
+				"attack_damage": 1,
+				"attack_range_horizontal": 20,
+				"attack_range_vertical": 20,
+				"attack_cooldown": 0.5,
+				"knockback_vertical_strength": 0.5,
+				"knockback_horizontal_strength": 2.8,
+				"knockback_height_cap": 0.5,
+				"duration_until_attack_sound": 1,
+				"charge_sound": "sonic_charge",
+				"attack_sound": "sonic_boom"
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 3,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"max_dist": 70
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "has_component",
+									"subject": "other",
+									"operator": "!=",
+									"value": "minecraft:is_baby"
+								}
+							]
+						},
+						"max_dist": 70
+					}
+				],
+				"must_see": true
+			},
+			"minecraft:behavior.charge_attack": {
+				"priority": 6
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 8,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.look_at_entity": {
+				"priority": 9,
+				"look_distance": 6,
+				"probability": 0.02,
+				"filters": {
+					"test": "is_family",
+					"subject": "other",
+					"value": "mob"
+				}
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": false
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		}
+	}
+}

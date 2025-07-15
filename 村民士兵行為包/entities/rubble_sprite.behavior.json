@@ -1,0 +1,314 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "miki:rubble_sprite",
+			"runtime_identifier": "minecraft:allay",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"pickup_item_delay": {
+				"minecraft:timer": {
+					"looping": false,
+					"time": 3,
+					"time_down_event": {
+						"event": "pickup_item_delay_complete"
+					}
+				}
+			},
+			"pickup_item": {
+				"minecraft:behavior.pickup_items": {
+					"priority": 2,
+					"max_dist": 32,
+					"search_height": 32,
+					"goal_radius": 2.2,
+					"speed_multiplier": 2,
+					"pickup_based_on_chance": false,
+					"can_pickup_any_item": false,
+					"can_pickup_to_hand_or_equipment": false,
+					"pickup_same_items_as_in_hand": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+				"allay",
+				"mage_villager",
+				"rubble_sprite",
+				"bow_soldier_villager",
+				"minecart_shooter",
+				"soldier_villager",
+				"stone_guardian",
+				"axe_soldier",
+				"irongolem",
+				"snowgolem",
+				"villager",
+				"mob"
+				]
+			},
+			"minecraft:hide": {
+			},
+			"minecraft:collision_box": {
+				"width": 0.35,
+				"height": 0.6
+			},
+			"minecraft:balloonable": {
+			},
+			"minecraft:physics": {},
+			"minecraft:breathable": {
+				"breathesAir": true,
+				"breathesWater": true
+			},
+			"minecraft:nameable": {},
+			"minecraft:leashable": {
+				"soft_distance": 4,
+				"hard_distance": 6,
+				"max_distance": 10
+			},
+			"minecraft:health": {
+				"value": 20
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.15
+			},
+			"minecraft:annotation.open_door": {
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:can_climb": {},
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:follow_range": {
+				"value": 1024
+			},
+			"minecraft:ambient_sound_interval": {
+				"value": 5,
+				"range": 5,
+				"event_name": "ambient",
+				"event_names": [
+					{
+						"event_name": "ambient.tame",
+						"condition": "query.is_using_item"
+					},
+					{
+						"event_name": "ambient",
+						"condition": "!query.is_using_item"
+					}
+				]
+			},
+			"minecraft:jump.static": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:navigation.generic": {
+				"is_amphibious": false,
+				"can_path_over_water": true,
+				"can_swim": true,
+				"can_walk": true,
+				"can_breach": false,
+				"can_sink": false,
+				"can_pass_doors": true,
+				"can_open_doors": true,
+				"avoid_water": true
+			},
+			"minecraft:vibration_listener": {},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:inventory": {
+				"inventory_size": 1
+			},
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							}
+						},
+						"give_item": true,
+						"take_item": true,
+						"interact_text": "action.interact.allay"
+					}
+				]
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.hide": {
+				"priority": 0,
+				"speed_multiplier": 0.8,
+				"poi_type": "bed",
+				"duration": 30.0
+			},
+			"minecraft:behavior.panic": {
+				"priority": 1,
+				"speed_multiplier": 2
+			},
+			"minecraft:behavior.go_and_give_items_to_noteblock": {
+				"priority": 3,
+				"run_speed": 3,
+				"throw_sound": "item_thrown",
+				"on_item_throw": [
+					{
+						"event": "pickup_item_delay",
+						"target": "self"
+					}
+				]
+			},
+			"minecraft:behavior.avoid_mob_type": {
+				"priority": 4,
+				"entity_types": [
+				{
+					"filters": {
+					"any_of": [
+						{
+						"test": "is_family",
+						"subject": "other",
+						"value": "zombie"
+						},
+						{
+						"test": "is_family",
+						"subject": "other",
+						"value": "zombie_villager"
+						},
+						{
+						"test": "is_family",
+						"subject": "other",
+						"value": "illager"
+						},
+						{
+						"test": "is_family",
+						"subject": "other",
+						"value": "vex"
+						},
+						{
+						"test": "is_family",
+						"subject": "other",
+						"value": "zoglin"
+						},						{
+						"test": "is_family",
+						"subject": "other",
+						"value": "dungeon_watcher"
+						}
+					]
+					},
+					"max_dist": 8,
+					"walk_speed_multiplier": 0.6,
+					"sprint_speed_multiplier": 0.6
+				}
+				]
+			},
+			"minecraft:behavior.go_and_give_items_to_owner": {
+				"priority": 4,
+				"run_speed": 2,
+				"throw_sound": "item_thrown",
+				"on_item_throw": [
+					{
+						"event": "pickup_item_delay",
+						"target": "self"
+					}
+				]
+			},
+			"minecraft:behavior.stay_near_noteblock": {
+				"priority": 5,
+				"speed": 3,
+				"start_distance": 16,
+				"stop_distance": 4
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 5
+			},
+			"minecraft:behavior.follow_owner": {
+				"priority": 6,
+				"speed_multiplier": 8,
+				"start_distance": 16,
+				"stop_distance": 4,
+				"can_teleport": false,
+				"ignore_vibration": false
+			},
+			"minecraft:behavior.move_indoors": {
+				"priority": 6,
+				"speed_multiplier": 0.8,
+				"timeout_cooldown": 8.0
+				},
+			"minecraft:behavior.look_at_player": {
+				"priority": 8,
+				"target_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 8
+			}
+		},
+		"events": {
+			"pickup_item_delay": {
+				"remove": {
+					"component_groups": ["pickup_item"]
+				},
+				"add": {
+					"component_groups": ["pickup_item_delay"]
+				}
+			},
+			"pickup_item_delay_complete": {
+				"remove": {
+					"component_groups": ["pickup_item_delay"]
+				},
+				"add": {
+					"component_groups": ["pickup_item"]
+				}
+			},
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["pickup_item"]
+				}
+			}
+		}
+	}
+}

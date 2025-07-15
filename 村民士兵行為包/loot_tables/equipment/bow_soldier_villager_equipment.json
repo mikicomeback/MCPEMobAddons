@@ -1,0 +1,42 @@
+{
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "random_regional_difficulty_chance",
+          "max_chance": 0.05
+        }
+      ]
+    },
+    {
+      "tiers": {
+        "initial_range": 2,
+        "bonus_rolls": 3,
+        "bonus_chance": 0.005
+      },
+
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "loot_tables/entities/armor_set_leather.json"
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/entities/armor_set_gold.json"
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/entities/armor_set_chain.json"
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/entities/armor_set_iron.json"
+        },
+        {
+          "type": "loot_table",
+          "name": "loot_tables/entities/armor_set_diamond.json"
+        }
+      ]
+    }
+  ]
+}

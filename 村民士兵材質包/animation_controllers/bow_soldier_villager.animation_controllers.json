@@ -1,0 +1,25 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.bow_soldier_villager.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" :  {
+					"transitions" : [
+						{
+							"attack" : "query.has_target && !query.facing_target_to_range_attack"
+						}
+					]
+				},
+				"attack" : {
+					"animations": [ "bow_soldier_villager_attack" ],
+					"transitions" : [
+						{
+							"default" : "!query.has_target || query.facing_target_to_range_attack"
+						}
+					]
+				}
+			}
+		}
+	}
+}

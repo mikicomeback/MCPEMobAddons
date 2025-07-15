@@ -1,0 +1,58 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "miki:chain_golem",
+      "population_control": "monster"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:stone",
+          "minecraft:granite",
+          "minecraft:diorite",
+          "minecraft:andesite",
+          "minecraft:tuff",
+          "minecraft:deepslate"
+        ],
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 6,
+          "adjust_for_weather": true
+        },
+        "minecraft:weight": {
+          "default": 8
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 3
+        },
+        "minecraft:biome_filter": {
+          "any_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "caves"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "dripstone_caves"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "lush_caves"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "monster"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

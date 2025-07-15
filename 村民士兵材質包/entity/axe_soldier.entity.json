@@ -1,0 +1,38 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "miki:axe_soldier",
+        "materials": {
+          "default": "villager_v2"
+        },
+        "textures": {
+          "default": "textures/entity/axe_soldier/default"
+        },
+        "geometry": {
+          "default": "geometry.axe_soldier"
+        },
+        "animations": {
+          "look_at_target": "animation.common.look_at_target",
+          "walk": "animation.axe_soldier.walk",
+          "attack": "animation.axe_soldier.attack",
+          "stand": "animation.axe_soldier.stand",
+          "main_controller": "controller.animation.axe_soldier"
+        },
+        "scripts": {
+          "animate": [
+            "main_controller",
+            "look_at_target"
+          ]
+        },
+        "render_controllers": [
+          "controller.render.axe_soldier"
+        ],
+        "enable_attachables": true,
+        "spawn_egg": {
+          "base_color": "#c0c0c0",
+          "overlay_color": "#525252"
+        }
+      }
+    }
+  }

@@ -1,0 +1,90 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.minecart_shooter.walk": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"root": {
+					"position": {
+						"0.0": [0, 0.25, 0],
+						"0.25": [0, 0, 0],
+						"0.5": [0, 0.25, 0]
+					}
+				},
+				"RightWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				},
+				"RightBackWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				},
+				"LeftBackWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				},
+				"LeftWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				}
+			}
+		},
+		"animation.minecart_shooter.attack": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"root": {
+					"position": {
+						"0.0": [0, 0.25, 0],
+						"0.25": [0, 0, 0],
+						"0.5": [0, 0.25, 0]
+					}
+				},
+				"lever": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [-90, 0, 0],
+						"0.25": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"RightWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				},
+				"RightBackWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				},
+				"LeftBackWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				},
+				"LeftWheels": {
+					"rotation": {
+						"0.0": [0, 45, 0],
+						"0.5": [0, 225, 0]
+					}
+				}
+			}
+		}
+	}
+}

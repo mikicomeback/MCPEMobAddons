@@ -1,0 +1,345 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "miki:minecart_shooter",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "minecraft:ranged_attack": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 0,
+          "attack_interval_min": 0.8,
+          "attack_interval_max": 1.5,
+          "attack_radius": 16,
+          "ranged_fov": 360,
+          "y_max_head_rotation": 360,
+          "x_max_rotation": 360
+        },
+        "minecraft:shooter": {
+          "def": "minecraft:arrow",
+          "sound": "bow"
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "test": "has_ranged_weapon",
+                "subject": "self",
+                "operator": "==",
+                "value": false
+              }
+            }
+          ]
+        }
+      },
+      "minecraft:horse_saddled": {
+        "minecraft:is_saddled": {},
+        "minecraft:input_ground_controlled": {},
+        "minecraft:behavior.player_ride_tamed": {}
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:collision_box": {
+        "width": 0.98,
+        "height": 0.7
+      },
+      "minecraft:is_stackable": {},
+      "minecraft:type_family": {
+        "family": [
+          "allay",
+          "mage_villager",
+          "rubble_sprite",
+          "bow_soldier_villager",
+          "minecart_shooter",
+          "soldier_villager",
+          "stone_guardian",
+          "axe_soldier",
+          "irongolem",
+          "snowgolem",
+          "villager",
+          "mob"
+        ]
+      },
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "crouching_skip_interact": true,
+        "family_types": [
+          "player",
+          "mage_villager",
+          "bow_soldier_villager",
+          "soldier_villager",
+          "axe_soldier"
+        ],
+        "interact_text": "action.interact.ride.minecart",
+        "seats": {
+          "position": [
+            0,
+            0,
+            -0.2
+          ]
+        }
+      },
+      "minecraft:equippable": {
+        "slots": [
+          {
+            "slot": 0,
+            "item": "saddle",
+            "accepted_items": [
+              "saddle"
+            ],
+            "on_equip": {
+              "event": "minecraft:horse_saddled"
+            },
+            "on_unequip": {
+              "event": "minecraft:horse_unsaddled"
+            }
+          }
+        ]
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "play_sounds": "saddle",
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "self",
+                    "domain": "inventory",
+                    "operator": "not",
+                    "value": "saddle"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "saddle"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "is_sneak_held",
+                    "subject": "other",
+                    "value": false
+                  }
+                ]
+              },
+              "target": "self"
+            },
+            "equip_item_slot": "0",
+            "interact_text": "action.interact.saddle"
+          }
+        ]
+      },
+      "minecraft:inventory": {
+        "inventory_size": 2,
+        "container_type": "horse"
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_water": true
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },      
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.25,
+        "target_dist": 0,
+        "track_target": true
+      },
+      "minecraft:navigation.generic": {
+        "can_path_over_water": true,
+        "can_swim": true,
+        "can_walk": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:nameable": {},
+      "minecraft:shooter": {
+        "def": "minecraft:arrow"
+      },
+      "minecraft:healable": {
+        "items": [
+          {
+            "item": "iron_ingot",
+            "heal_amount": 6
+          },
+          {
+            "item": "netherite_ingot",
+            "heal_amount": 20
+          },
+          {
+            "item": "gold_ingot",
+            "heal_amount": 4
+          },
+          {
+            "item": "diamond",
+            "heal_amount": 8
+          },
+          {
+            "item": "emerald",
+            "heal_amount": 8
+          }
+        ]
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4,
+        "hard_distance": 10,
+        "max_distance": 16
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 0,
+        "attack_interval_min": 0.8,
+        "attack_interval_max": 3,
+        "attack_radius": 16
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 3,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "bow_soldier_villager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "soldier_villager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "mage_villager"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "stone_guardian"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "axe_soldier"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "minecart_shooter"
+                }
+              ]
+            },
+            "max_dist": 16
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 3,
+        "must_see": true,
+        "reselect_targets": false,
+        "within_radius": 16,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "monster"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "creeper"
+                },
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "operator": "!=",
+                  "value": "enderman"
+                }
+              ]
+            },
+            "max_dist": 16
+          }
+        ]
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "minecraft:horse_saddled": {
+        "add": {
+          "component_groups": [
+            "minecraft:horse_saddled"
+          ]
+        }
+      },
+      "minecraft:horse_unsaddled": {
+        "remove": {
+          "component_groups": [
+            "minecraft:horse_saddled"
+          ]
+        }
+      },
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "minecraft:ranged_attack"
+          ]
+        }
+      },
+      "minecraft:ranged_mode": {
+        "add": {
+          "component_groups": [
+            "minecraft:ranged_attack"
+          ]
+        }
+      }
+    }
+  }
+}

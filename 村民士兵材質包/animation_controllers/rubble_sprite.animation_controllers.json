@@ -1,0 +1,80 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.rubble_sprite.general": {
+			"initial_state": "idling",
+			"states": {
+				"idling": {
+					"animations": [	"idle" ],
+					"transitions": [
+						{ "walking": "query.modified_move_speed > 0.1"}
+					],
+					"blend_transition": 0.1
+				},
+				"walking": {
+					"animations": [ "walk" ],
+					"transitions": [
+						{ "idling": "query.modified_move_speed < 0.1"}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.rubble_sprite.look_at_target": {
+			"initial_state": "default",
+			"states" : {
+				"default": {
+					"transitions": [
+						{ "looking_at_target": "!query.is_dancing" }
+					]
+				},
+				"looking_at_target" : {
+					"animations": [ "look_at_target_default" ],
+					"transitions": [
+						{ "default": "query.is_dancing" }
+					]
+				}
+			}
+		},
+		"controller.animation.rubble_sprite.holding": {
+			"initial_state": "holding",
+			"states": {
+				"holding": {
+					"animations": [
+						{ "hold_item": "variable.is_holding_left || variable.is_holding_right" }
+					],
+					"transitions": [
+						{ "fly_holding": "query.modified_move_speed > 0.1" }
+					],
+					"blend_transition": 0.1
+				},
+				"fly_holding": {
+					"animations": [
+						{ "hold_item_fly": "variable.is_holding_left || variable.is_holding_right" }
+					],
+					"transitions": [
+						{ "holding": "query.modified_move_speed < 0.1" }
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.rubble_sprite.dancing": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{ "dancing": "query.is_dancing" }
+					],
+					"blend_transition": 0.1
+				},
+				"dancing": {
+					"animations": [ "dance" ],
+					"transitions": [
+						{ "default": "!query.is_dancing" }
+					]
+				}
+			}
+		}
+	}
+}

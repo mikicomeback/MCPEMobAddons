@@ -1,0 +1,29 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "測試用行為包",
+        "description": "測試用行為包",
+        "uuid": "b143916a-b8ff-4f06-bc3e-db64b87582d0",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            16,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "cd6a3431-c0e9-4630-ad35-a48e36b1cc3e",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}
