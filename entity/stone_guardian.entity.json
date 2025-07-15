@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "miki:stone_guardian",
+        "materials": {
+          "default": "iron_golem"
+        },
+        "textures": {
+          "default": "textures/entity/stone_guardian/default"
+        },
+        "geometry": {
+          "default": "geometry.stone_guardian"
+        },
+        "animations": {
+          "stand":"animation.stone_guardian.stand",
+          "walk": "animation.stone_guardian.walk",
+          "move": "animation.stone_guardian.move",
+          "attack": "animation.stone_guardian.attack",
+          "look_at_target": "animation.common.look_at_target",
+          "walk_to_target": "animation.stone_guardian.walk_to_target",
+          "move_to_target": "animation.stone_guardian.move_to_target",
+          "move_controller": "controller.animation.stone_guardian.move",
+          "arm_controller": "controller.animation.stone_guardian.arm_movement"
+        },
+        "scripts": {
+          "animate": [
+            "look_at_target",
+            "move_controller",
+            "arm_controller"
+          ]
+        },
+        "render_controllers": [
+          "controller.render.stone_guardian"
+        ],
+        "enable_attachables": true,
+        "spawn_egg": {
+          "base_color": "#c0c0c0",
+          "overlay_color": "#525252"
+        }
+      }
+    }
+  }

@@ -1,0 +1,17 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.stone_guardian": {
+			"part_visibility": [
+				{ "*saddle*": "query.is_saddled" }
+			],
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": ["texture.default"]
+		}
+	}
+}

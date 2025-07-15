@@ -1,0 +1,34 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "miki:soldier_villager",
+        "materials": {
+          "default": "villager_v2"
+        },
+        "textures": {
+          "default": "textures/entity/soldier_villager/default"
+        },
+        "geometry": {
+          "default": "geometry.soldier_villager"
+        },
+        "animations": {
+          "look_at_target": "animation.common.look_at_target",
+          "walk": "animation.soldier_villager.walk",
+          "attack": "animation.soldier_villager.attack",
+          "stand": "animation.soldier_villager.stand",
+          "main_controller": "controller.animation.soldier_villager",
+          "riding.arms": "animation.humanoid.riding.arms",
+          "riding.legs": "animation.humanoid.riding.legs"
+        },
+        "render_controllers": [
+          "controller.render.soldier_villager"
+        ],
+        "enable_attachables": true,
+        "spawn_egg": {
+          "base_color": "#c0c0c0",
+          "overlay_color": "#525252"
+        }
+      }
+    }
+  }

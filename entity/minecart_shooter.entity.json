@@ -1,0 +1,37 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "miki:minecart_shooter",
+        "materials": {
+          "default": "villager_v2"
+        },
+        "textures": {
+          "default": "textures/entity/minecart_shooter/default"
+        },
+        "geometry": {
+          "default": "geometry.minecart_shooter"
+        },
+        "animations": {
+          "look_at_target": "animation.common.look_at_target",
+          "walk": "animation.minecart_shooter.walk",
+          "attack": "animation.minecart_shooter.attack",
+          "main_controller": "controller.animation.minecart_shooter"
+        },
+        "scripts": {
+          "animate": [
+            "main_controller",
+            "look_at_target"
+          ]
+        },
+        "render_controllers": [
+          "controller.render.minecart_shooter"
+        ],
+        "enable_attachables": true,
+        "spawn_egg": {
+          "base_color": "#c0c0c0",
+          "overlay_color": "#525252"
+        }
+      }
+    }
+  }

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.bow_soldier_villager": {
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": ["texture.default"]
+		}
+	}
+}

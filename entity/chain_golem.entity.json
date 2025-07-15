@@ -1,0 +1,43 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "miki:chain_golem",
+			"textures": {
+				"default": "textures/entity/chain_golem/default"
+			},
+			"materials": {
+				"default": "iron_golem"
+			},
+			"geometry": {
+				"default": "geometry.chain_golem"
+			},
+			"render_controllers": ["controller.render.chain_golem"],
+			"spawn_egg": {
+				"base_color": "#06a57b",
+				"overlay_color": "#c48054"
+			},
+			"animations": {
+				"walk": "animation.chain_golem.walk",
+				"look_at_target": "animation.common.look_at_target",
+				"stunned": "animation.chain_golem.stunned",
+				"roaring": "animation.chain_golem.roaring",
+				"move": "controller.animation.chain_golem.move",
+				"head": "controller.animation.chain_golem.head_movement",
+				"biting": "animation.chain_golem.attack"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.roar_length = 1.0;"
+				],
+				"animate": [
+					"move",
+					"head"
+				]
+			},
+			"particle_effects": {
+				"stun_particles": "minecraft:stunned_emitter"
+			}
+		}
+	}
+}
